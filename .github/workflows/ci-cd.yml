@@ -21,7 +21,7 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: 🔓 Give execute permission to mvnw
+      - name:  Give execute permission to mvnw
         run: chmod +x mvnw
 
       - name: 🧱 Build project with Maven
