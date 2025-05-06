@@ -21,5 +21,14 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
+      - name: 🔓 Give execute permission to mvnw
+        run: chmod +x ./mvnw
+
       - name: 🧱 Build project with Maven
         run: ./mvnw clean install
+
+      - name: 📦 Upload JAR as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: spring-boot-app
+          path: target/*.jar
