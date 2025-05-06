@@ -1,0 +1,19 @@
+-- Insert data into employees table
+INSERT INTO employees (name, department) VALUES
+('John Doe', 'Engineering'),
+('Jane Smith', 'Marketing'),
+('Alice Johnson', 'Sales');
+
+
+INSERT INTO tasks (name, description) VALUES
+('Code Development', 'Developing new features for the application'),
+('Market Research', 'Conduct research to identify market trends'),
+('Client Meeting', 'Meeting with the client to discuss project requirements');
+
+-- Assuming the IDs of the employees and tasks are sequential starting from 1
+-- (you should adjust based on your actual database state)
+INSERT INTO taskers (employee_id, task_id) VALUES
+(6, 8), -- John Doe is assigned to Code Development
+(7, 9), -- Jane Smith is assigned to Market Research
+(8, 10); -- Alice Johnson is assigned to Client Meeting
+
