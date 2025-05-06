@@ -28,7 +28,7 @@ jobs:
         run: ./mvnw clean install
 
       - name: 📦 Upload JAR as artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v2
         with:
           name: spring-boot-app
           path: target/*.jar
