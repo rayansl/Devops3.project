@@ -24,7 +24,7 @@ jobs:
       - name:  Give execute permission to mvnw
         run: chmod +x mvnw
 
-      - name: 🧱 Build project with Maven
+      - name: 🧱Build project with Maven
         run: ./mvnw clean install -DskipTests
 
       - name: 🐳 Login to DockerHub
