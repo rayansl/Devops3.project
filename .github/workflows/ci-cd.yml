@@ -40,3 +40,17 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/devops-v2:latest
+
+      - name: 📄 Save PEM Key from Secret
+        run: |
+          echo "${{ secrets.CLOUD_KEY }}" | base64 -d > key.pem
+          chmod 600 key.pem
+
+      - name: 🐧 SSH into Server and Run Docker
+        run: |
+          ssh -i key.pem -o StrictHostKeyChecking=no ${{ secrets.CLOUD_USER }}@${{ secrets.CLOUD_HOST }} "
+            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/devops-v2:latest &&
+            docker stop myapp || true &&
+            docker rm myapp || true &&
+            docker run -d --name myapp -p 8080:8080 ${{ secrets.DOCKERHUB_USERNAME }}/devops-v2:latest
+          "
