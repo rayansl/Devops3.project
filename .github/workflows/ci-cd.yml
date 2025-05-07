@@ -30,9 +30,9 @@ jobs:
       - name: 📤 Upload JAR to AWS EC2
         uses: appleboy/scp-action@master
         with:
-          host: ${{ secrets.EC2_HOST }}
-          username: ${{ secrets.EC2_USER }}
-          key: ${{ secrets.AWS_PRIVATE_KEY }}
+          host: ${{ secrets.CLOUD_HOST }}
+          username: ${{ secrets.CLOUD_USER }}
+          key: ${{ secrets.AWS_CLOUD_KEY }}
           source: "target/devops-v2-0.0.1-SNAPSHOT.jar"
           target: "/home/ec2-user/"
 
