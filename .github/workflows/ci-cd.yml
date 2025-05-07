@@ -63,7 +63,7 @@ jobs:
       - name: 📤 Push Docker Image to Docker Hub
         run: docker push $IMAGE_NAME
 
-      - name: 🚀 Run Docker Container on EC2
+      - name: 🚀Run Docker Container on EC2
         run: |
           ssh -o StrictHostKeyChecking=no -i key.pem $AWS_USER@$AWS_HOST << EOF
             docker pull $IMAGE_NAME
